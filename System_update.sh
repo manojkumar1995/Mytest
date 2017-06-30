@@ -56,29 +56,45 @@ AvgMemory $mem $count
 AvgDisk $DiskUsage $count
 AvgCpu  $CpuUsage $count
 
-echo -e "Enter the resource you want ::\n m=MEMORY | d= DISK | c= CPU\n"
+echo -e "Enter the resource you want ::\n m=MEMORY | d= DISK | c= CPU or press "Enter" for all resources \n"
 read resource 
 case $resource in
-	"m")	
+	m|MEMORY|memory|Memory)	
 			echo -e "You have selected Memory details:\n "
 			#echo -e "\n"			
 			echo -e ">>>>>\t $avg % is the Average Memory Usage of the System.\n" 
 			
 
 	;;
-	"d")
+
+	d|DISK|disk|Disk)
 			echo -e "You have selected Disk details:\n"
 			#echo -e "\n"	
 			echo -e ">>>>>\t $avg2% is the Average Disk Usage of the System.\n" 
 	;;
-	"c")
+
+	c|CPU|cpu|Cpu)
 			echo "You have selected CPU details :"
 			#echo -e "\n"	
 			echo -e ">>>>>\t $avg1% is the Average CPU Usage of the System."	
 	;;
 
-	    *)
-			echo -e ">>>>>\t Invalid Resource \n>>>>>\tCheck the Resource the and try again"
+	    *|All|ALL|all)
+                        echo -e "Average Memory details:\n "
+			#echo -e "\n"			
+			echo -e ">>>>>\t $avg % is the Average Memory Usage of the System.\n" 
+
+   
+                        echo -e "Average Disk details:\n"
+			#echo -e "\n"	
+			echo -e ">>>>>\t $avg2% is the Average Disk Usage of the System.\n"
+
+
+			echo "Average CPU details :\n"
+			#echo -e "\n"	
+			echo -e ">>>>>\t $avg1% is the Average CPU Usage of the System.\n"
+         ;;    
+                     #echo -e ">>>>>\t Invalid Resource \n>>>>>\tCheck the Resource the and try again"
 
 esac
 
